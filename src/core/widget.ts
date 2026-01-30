@@ -8,6 +8,7 @@ import { OfflineQueue } from './offline-queue';
 import type {
   WidgetConfig,
   FeedbackSubmission,
+  FeedbackContext,
   FeedbackType,
   FeedbackPriority,
   SubmissionResponse,
@@ -180,7 +181,7 @@ export class FeedbackWidget {
   /**
    * Get context (for debugging)
    */
-  static async getContext(): Promise<Record<string, unknown> | null> {
+  static async getContext(): Promise<FeedbackContext | null> {
     return FeedbackWidget.instance?.contextCollector.getContext() ?? null;
   }
 

@@ -7,9 +7,19 @@ import { Platform, Dimensions } from 'react-native';
 import type { FeedbackContext, WidgetConfig } from '../types';
 
 /**
+ * Minimal interface for expo-device (optional dependency)
+ */
+interface ExpoDeviceModule {
+  brand: string | null;
+  modelName: string | null;
+  deviceType: number | null;
+  isDevice: boolean;
+}
+
+/**
  * Try to import optional dependencies
  */
-let ExpoDevice: typeof import('expo-device') | null = null;
+let ExpoDevice: ExpoDeviceModule | null = null;
 try {
   ExpoDevice = require('expo-device');
 } catch {
